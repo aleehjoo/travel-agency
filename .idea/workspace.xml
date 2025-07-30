@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5279ca18-1d25-4bcf-ad8b-dac75b9f291b" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/admin/admin-layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/admin/admin-layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/admin/all-users.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/admin/all-users.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/admin/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/admin/dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +84,10 @@
       <workItem from="1751808222756" duration="1956000" />
       <workItem from="1752753579711" duration="7313000" />
       <workItem from="1752768972400" duration="14000" />
-      <workItem from="1752807401746" duration="14118000" />
+      <workItem from="1752807401746" duration="14878000" />
+      <workItem from="1753706823794" duration="4623000" />
+      <workItem from="1753834747603" duration="2153000" />
+      <workItem from="1753838333356" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
