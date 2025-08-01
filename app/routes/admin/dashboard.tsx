@@ -1,21 +1,8 @@
 import React from 'react'
 import {Header, StatsCard, TripCard} from "../../../components";
+import {dashboardStats, user, allTrips} from "~/constants";
 
 const Dashboard = () => {
-    const user = { name: 'Alejandro'}
-    const dashboardStats = {
-        totalUsers: 12423,
-        usersJoined: {
-            currentMonth: 215, lastMonth: 138
-        },
-        totalTrips: 3452,
-        tripsCreated: {
-            currentMonth: 170, lastMonth: 244
-        },
-        userRole: {
-            total: 55, currentMonth: 20, lastMonth: 17
-        }
-    }
 
     const {totalUsers, usersJoined, totalTrips, tripsCreated, userRole} = dashboardStats;
 
