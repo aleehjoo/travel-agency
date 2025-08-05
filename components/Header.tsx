@@ -22,7 +22,7 @@ const Header = ({ title, description }: Props) => {
                     cn("text-gray-100 font-normal",
                         location.pathname === '/' ? 'text-base md:text-lg' :
                             'text-sm md:text-lg')
-                }>{description}cl
+                }>{description}
                 </p>
             </article>
         </div>
