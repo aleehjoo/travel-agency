@@ -1,15 +1,33 @@
 import React from 'react'
 import {Header} from "../../../components";
+import {ColumnDirective, ColumnsDirective, GridComponent} from "@syncfusion/ej2-react-grids";
+import {users} from "~/constants";
 
 const AllUsers = () => {
     return (
         <main className="dashboard wrapper">
             <Header
-                title={`Trips Page`}
-                description={"Check out our current users in real time"}
+                title={`Manage Users`}
+                description={"Filter, sort and access detailed user profiles"}
             />
 
-            All Users Page Contents
+            <GridComponent dataSource={users} gridLines="None">
+                <ColumnsDirective>
+                    <ColumnDirective
+                        field="name"
+                        headerText="Name"
+                        width="200"
+                        textAlign="Left"
+                        template={(props: UserData)  => (
+                            <div className="flex items-center gap-1.5 px-4">
+                                <img src={props.imageUrl} alt="user" className="rounded-full size-8 aspect-square" />
+                                <span>{props.name}</span>
+
+                            </div>
+                        )}
+                    />
+                </ColumnsDirective>
+            </GridComponent>
         </main>
     )
 }
