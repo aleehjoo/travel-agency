@@ -1,16 +1,17 @@
 import {Header} from "../../../components";
 import {ComboBoxComponent} from "@syncfusion/ej2-react-dropdowns";
 import type { Route } from './+types/create-trip'
+import { getCountries } from "@yusifaliyevpro/countries";
 
 export const loader = async () => {
-    const response = await fetch('https://restcountries.com/v3.1/all');
-    const data = await response.json();
+    const countries = await getCountries({
+        fields: ["name", "latlng", "maps", "flag"]
+    });
 
-    return data.map((country: any) => ({
-        name: country.flag + country.name.common,
+    return countries.map((country) => ({
+        name: country.flag + " " + country.name.common,
         coordinates: country.latlng,
         value: country.name.common,
-        openStreetMap: country.maps?.openStreetMap,
     }))
 }
 
