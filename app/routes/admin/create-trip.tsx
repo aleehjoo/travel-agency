@@ -2,10 +2,12 @@ import {Header} from "../../../components";
 import {ComboBoxComponent} from "@syncfusion/ej2-react-dropdowns";
 import type { Route } from './+types/create-trip';
 import {comboBoxItems, selectItems} from "~/constants";
-import {formatKey} from "~/lib/utils";
+import {cn, formatKey} from "~/lib/utils";
 import {LayerDirective, LayersDirective, MapsComponent} from "@syncfusion/ej2-react-maps";
 import {useState} from "react";
 import {world_map} from "~/constants/world_map";
+import {ButtonComponent} from "@syncfusion/ej2-react-buttons";
+import {account} from "~/appwrite/client";
 
 interface Country {
     name: string;
@@ -37,13 +39,53 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
         duration: 0,
         groupType: '',
     })
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async () => {};
-    const handleChange = () => {
-        (key: keyof TripFormData, value: string | number) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setLoading(true);
 
+        if(
+            !formData.country ||
+            !formData.travelStyle ||
+            !formData.interest ||
+            !formData.budget ||
+            !formData.groupType
+        ) {
+            setError('Please fill in all fields');
+            setLoading(false);
+            return;
         }
+
+        if(formData.duration < 1 || formData.duration > 365) {
+            setError('Duration must be between 1 and 365 days');
+            setLoading(false);
+            return;
+        }
+
+        const user = await account.get();
+        if(!user.$id) {
+            console.error('User not found');
+            setLoading(false);
+            return;
+        }
+
+        try {
+            console.log('Creating trip with data:', formData);
+            console.log('User:', user);
+        } catch (e) {
+            console.error('Error creating trip', e);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleChange = (key: keyof TripFormData, value: string | number) =>
+    {
+        setFormData({ ... formData, [key]: value})
     }
+
 
     const countryData = countries.map((country) => ({
         text: country.name,
@@ -144,11 +186,29 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
                                 <LayerDirective
                                     shapeData={world_map}
                                     dataSource={mapData}
-                                    shapeDataPath="name"
+                                    shapePropertyPath="name"
+                                    shapeDataPath="country"
+                                    shapeSettings={{ colorValuePath: 'color', fill: ''}}
                                 />
                             </LayersDirective>
                         </MapsComponent>
                     </div>
+
+                    <div className="bg-gray-200 h-px w-full" />
+
+                    {error && (
+                        <div className="error">
+                            <p>{error}</p>
+                        </div>
+                    )}
+                    <footer className="px-6 w-full">
+                        <ButtonComponent type="submit" className="button-class !h-12 !w-full" disabled={loading}>
+                            <img src={`/assets/icons/${loading ? 'loader.svg' : 'magic-star.svg'}`} className={cn("size-5", {'animate-spin' : loading})} alt="magic-star"/>
+                            <span className="p-16-semibold text-white">
+                                {loading ? 'Creating trip...' : 'Create trip'}
+                            </span>
+                        </ButtonComponent>
+                    </footer>
                 </form>
             </section>
         </main>

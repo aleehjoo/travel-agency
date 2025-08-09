@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5279ca18-1d25-4bcf-ad8b-dac75b9f291b" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/admin/create-trip.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/admin/create-trip.tsx" afterDir="false" />
     </list>
@@ -106,7 +107,7 @@
       <workItem from="1754651269034" duration="352000" />
       <workItem from="1754739378552" duration="269000" />
       <workItem from="1754739801182" duration="122000" />
-      <workItem from="1754740185837" duration="1008000" />
+      <workItem from="1754740185837" duration="3759000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
