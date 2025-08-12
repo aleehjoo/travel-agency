@@ -1,7 +1,7 @@
 import type {LoaderFunctionArgs} from "react-router";
 import {getTripById} from "~/appwrite/trips";
 import type { Route } from './+types/trip-detail';
-import {parseTripData} from "~/lib/utils";
+import {cn, parseTripData} from "~/lib/utils";
 import {Header, InfoPill} from "../../../components";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
@@ -13,7 +13,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 }
 
 const TripDetail = ({ loaderData }: Route.ComponentProps) => {
-    console.log(loaderData)
+    const imageUrls = loaderData?.imageUrls || [];
     const tripData = parseTripData(loaderData?.tripDetail);
 
     const { name, duration, itinerary, travelStyle, groupType, budget, interests,
@@ -39,8 +39,17 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
                         />
                     </div>
                 </header>
-                <section className="gallery">
 
+                <section className="gallery grid grid-cols-1 md:grid-cols-3 gap-5">
+                    {imageUrls.map((url: string, i: number) => (
+                        <img
+                            src={url}
+                            key={i}
+                            className={cn('w-full rounded-xl object-cover', i === 0
+                                ? 'md:col-span-2 md:row-span-2 h-[330px]'
+                                : 'md:row-span-1 h-[150px]')}
+                        />
+                    ))}
                 </section>
 
             </section>
