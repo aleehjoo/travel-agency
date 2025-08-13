@@ -1,8 +1,9 @@
 import type {LoaderFunctionArgs} from "react-router";
 import {getTripById} from "~/appwrite/trips";
 import type { Route } from './+types/trip-detail';
-import {cn, parseTripData} from "~/lib/utils";
+import {cn, getFirstWord, parseTripData} from "~/lib/utils";
 import {Header, InfoPill} from "../../../components";
+import {ChipDirective, ChipListComponent, ChipsDirective} from "@syncfusion/ej2-react-buttons";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
     const { tripId } = params;
@@ -10,6 +11,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     if(!tripId) throw new Error('Trip ID is required');
 
     return await getTripById(tripId);
+
 }
 
 const TripDetail = ({ loaderData }: Route.ComponentProps) => {
@@ -18,6 +20,13 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
 
     const { name, duration, itinerary, travelStyle, groupType, budget, interests,
         estimatedPrice, description, bestTimeToVisit, weatherInfo, country} = tripData || {};
+
+    const pillItems = [
+        { text: travelStyle, bg: '!bg-pink-50 !text-pink-500' },
+        { text: groupType, bg: '!bg-primary-50 !text-primary-500' },
+        { text: budget, bg: '!bg-success-50 !text-success-700' },
+        { text: interests, bg: '!bg-navy-50 !text-navy-500' },
+    ];
 
     return (
         <main className="trip-detail wrapper">
@@ -50,6 +59,48 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
                                 : 'md:row-span-1 h-[150px]')}
                         />
                     ))}
+                </section>
+
+                <section className="flex gap=3 md:gap-5 items-center flex-wrap">
+                    <ChipListComponent id="travel-chip">
+                        <ChipsDirective>
+                            {pillItems.map((pill, index) => (
+                                <ChipDirective
+                                    key={index}
+                                    text={getFirstWord(pill.text)}
+                                    cssClass={`${pill.bg} !text-base !font-medium !px-4`}
+                                />
+                            ))}
+                        </ChipsDirective>
+                    </ChipListComponent>
+
+                    <ul className="flex gap-1 items-center">
+                        {Array(5).fill(0).map((_, i) => (
+                            <li key={i}>
+                                <img src="/assets/icons/star.svg" alt="star" className="size-[18px]" />
+                            </li>
+                        ))}
+
+                        <li className="ml-1">
+                            <ChipListComponent>
+                                <ChipsDirective>
+                                    <ChipDirective
+                                        text="4.9/5"
+                                        cssClass="!bg-yellow-50 !text-yellow-700"
+                                    />
+                                </ChipsDirective>
+                            </ChipListComponent>
+                        </li>
+                    </ul>
+                </section>
+
+                <section className="title">
+                    <article>
+                        <h3>
+                            {duration}-Day {country} {travelStyle} Trip
+                        </h3>
+                    </article>
+
                 </section>
 
             </section>
