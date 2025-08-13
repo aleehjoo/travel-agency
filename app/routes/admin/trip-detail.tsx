@@ -183,6 +183,8 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
                         />
                     ))}
                 </div>
+
+
             </section>
         </main>
     )
