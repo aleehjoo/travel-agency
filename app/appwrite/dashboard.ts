@@ -58,11 +58,26 @@ export const getUsersAndTripsStats = async (): Promise<DashboardStats> => {
                 filterUsersByRole('user'),
                 'joinedDate',
                 startCurrent,
-                undefinedgit
+                undefined
             ),
             lastMonth: filterByDate(
                 filterUsersByRole('user'),
                 'joinedDate',
+                startPrev,
+                endPrev
+            )
+        },
+        totalTrips: trips.total,
+        tripsCreated: {
+            currentMonth: filterByDate(
+                trips.documents,
+                'createdAt',
+                startCurrent,
+                undefined
+            ),
+            lastMonth: filterByDate(
+                trips.documents,
+                'createdAt',
                 startPrev,
                 endPrev
             )
