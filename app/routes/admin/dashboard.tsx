@@ -14,7 +14,7 @@ import {
     SeriesCollectionDirective, SeriesDirective
 } from "@syncfusion/ej2-react-charts";
 import {Inject} from "@syncfusion/ej2-react-grids";
-import {userXAxis, useryAxis} from "~/constants";
+import {tripXAxis, tripyAxis, userXAxis, useryAxis} from "~/constants";
 
 
 export const clientLoader = async () => {
@@ -47,6 +47,27 @@ export const clientLoader = async () => {
 const Dashboard = ({ loaderData }: Route.ComponentProps) => {
     const user = loaderData.user as User | null;
     const { dashboardStats, allTrips, userGrowth, tripByTravelStyle, allUsers } = loaderData;
+
+    const trips = allTrips.map((trip) => ({
+        imageUrl: trip.imageUrls[0],
+        name:trip.name,
+        interests: trip.interests,
+    }))
+
+    const userAndTrips = [
+        {
+            title: 'Lastest user signups',
+            dataSource: allUsers,
+            field: 'count',
+            headerText: 'Trips created'
+        },
+        {
+            title: 'Trips based on interests',
+            dataSource: trips,
+            field: 'interests',
+            headerText: 'interests'
+        }
+    ]
 
     return (
         <main className="dashboard wrapper">
@@ -106,20 +127,59 @@ const Dashboard = ({ loaderData }: Route.ComponentProps) => {
                 >
                     <Inject services={[ColumnSeries, SplineAreaSeries, Category, DataLabel, Tooltip]}/>
 
-                <SeriesCollectionDirective>
-                    <SeriesDirective
-                        dataSource={userGrowth}
-                        xName="day"
-                        yName="count"
-                        type="Column"
-                        name="Column"
-                        columnWidth={0.3}
-                        cornerRadius={{ topLeft: 10, topRight: 10 }}
-                    />
-                </SeriesCollectionDirective>
+                    <SeriesCollectionDirective>
+                        <SeriesDirective
+                            dataSource={userGrowth}
+                            xName="day"
+                            yName="count"
+                            type="Column"
+                            name="Column"
+                            columnWidth={0.3}
+                            cornerRadius={{ topLeft: 10, topRight: 10 }}
+                        />
+                        <SeriesDirective
+                            dataSource={userGrowth}
+                            xName="day"
+                            yName="count"
+                            type="SplineArea"
+                            name="Wave"
+                            fill="rgba(71, 132, 238, 0.3)"
+                            columnWidth={0.3}
+                            cornerRadius={{ topLeft: 10, topRight: 10 }}
+                            border={{ width: 2, color: '#4784EE'}}
+                        />
+                    </SeriesCollectionDirective>
                 </ChartComponent>
 
+                <ChartComponent
+                    id="chart-2"
+                    primaryXAxis={tripXAxis}
+                    primaryYAxis={tripyAxis}
+                    title="Trip Trends"
+                    tooltip={{ enable: true }}
+                >
+                    <Inject services={[ColumnSeries, SplineAreaSeries, Category, DataLabel, Tooltip]}/>
 
+                    <SeriesCollectionDirective>
+                        <SeriesDirective
+                            dataSource={tripByTravelStyle}
+                            xName="travelStyle"
+                            yName="count"
+                            type="Column"
+                            name="day"
+                            columnWidth={0.3}
+                            cornerRadius={{ topLeft: 10, topRight: 10 }}
+                        />
+                    </SeriesCollectionDirective>
+                </ChartComponent>
+            </section>
+
+            <section className="user-trip wrapper">
+                {userAndTrips.map(({ title, dataSource, field, headerText }, index) => (
+                    <div key={index} className="flex flex-col gap-5">
+                        <h3 className="p-20-semibold text-dark-100">{title}</h3>
+                    </div>
+                ))}
             </section>
         </main>
     )

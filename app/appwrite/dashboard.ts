@@ -94,7 +94,7 @@ export const getUserGrowthPerDay = async () => {
 
     const userGrowth = users.documents.reduce(
         (acc: { [key: string]: number }, user: Document) => {
-            const date = new Date(user.joinedAt);
+            const date = new Date(user.joinedDate);
             const day = date.toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
@@ -144,7 +144,7 @@ export const getTripsByTravelStyle = async () => {
 
     const travelStyleCounts = trips.documents.reduce(
         (acc: { [key: string]: number }, trip: Document) => {
-            const tripDetail = parseTripData(trip.tripDetails);
+            const tripDetail = parseTripData(trip.tripDetail);
 
             if (tripDetail && tripDetail.travelStyle) {
                 const travelStyle = tripDetail.travelStyle;
