@@ -13,8 +13,9 @@ import {
     DataLabel,
     SeriesCollectionDirective, SeriesDirective
 } from "@syncfusion/ej2-react-charts";
-import {Inject} from "@syncfusion/ej2-react-grids";
+import {ColumnDirective, ColumnsDirective, GridComponent, Inject} from "@syncfusion/ej2-react-grids";
 import {tripXAxis, tripyAxis, userXAxis, useryAxis} from "~/constants";
+import React from "react";
 
 
 export const clientLoader = async () => {
@@ -36,7 +37,7 @@ export const clientLoader = async () => {
     const mappedUsers: UsersItineraryCount[] = allUsers.users.map((user) => ({
         imageUrl: user.imageUrl,
         name: user.name,
-        count: user.itineraryCount,
+        count: user.itineraryCount ?? Math.floor(Math.random() * 10),
     }))
 
     return {
@@ -178,6 +179,31 @@ const Dashboard = ({ loaderData }: Route.ComponentProps) => {
                 {userAndTrips.map(({ title, dataSource, field, headerText }, index) => (
                     <div key={index} className="flex flex-col gap-5">
                         <h3 className="p-20-semibold text-dark-100">{title}</h3>
+
+                        <GridComponent dataSource={dataSource} gridLines="None">
+                            <ColumnsDirective>
+                                <ColumnDirective
+                                    field="name"
+                                    headerText="Name"
+                                    width="200"
+                                    textAlign="Left"
+                                    template={(props: UserData)  => (
+                                        <div className="flex items-center gap-1.5 px-4">
+                                            <img src={props.imageUrl} alt="user" className="rounded-full size-8 aspect-square" />
+                                            <span>{props.name}</span>
+
+                                        </div>
+                                    )}
+                                />
+
+                                <ColumnDirective
+                                    field={field}
+                                    headerText={headerText}
+                                    width="150"
+                                    textAlign="Left"
+                                />
+                            </ColumnsDirective>
+                        </GridComponent>
                     </div>
                 ))}
             </section>

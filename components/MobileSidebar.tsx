@@ -12,7 +12,7 @@ const MobileSidebar = () => {
     return (
         <div className="mobile-sidebar wrapper">
             <header>
-                <Link to="/">
+                <Link to="/sign-in">
                     <img
                         src="/assets/icons/logo.svg"
                         alt="Logo"

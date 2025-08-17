@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5279ca18-1d25-4bcf-ad8b-dac75b9f291b" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/appwrite/dashboard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/appwrite/dashboard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/admin/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/admin/dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/root/page-layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/root/page-layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/root/sign-in.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/root/sign-in.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/MobileSidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/MobileSidebar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +59,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;junie.application.models&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Alejandro\\WebstormProjects\\travel-agency\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -116,6 +118,10 @@
       <workItem from="1755045114452" duration="7390000" />
       <workItem from="1755084012009" duration="4974000" />
       <workItem from="1755149001557" duration="10928000" />
+      <workItem from="1755229039415" duration="1792000" />
+      <workItem from="1755230867789" duration="159000" />
+      <workItem from="1755255950922" duration="14000" />
+      <workItem from="1755412694833" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />

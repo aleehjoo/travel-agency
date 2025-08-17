@@ -7,7 +7,7 @@ export async function clientLoader() {
     try {
         const user = await account.get();
 
-        if(user.$id) return redirect('/');
+        if(user.$id) return redirect('/dashboard');
     } catch (e) {
         console.log("Error fetching user", e)
     }
@@ -22,7 +22,7 @@ const SignIn = () => {
 
                 <div className="sign-in-card">
                     <header className="header">
-                        <Link to="/">
+                        <Link to="/sign-in">
                             <img
                                 src="/assets/icons/logo.svg"
                                 alt="logo"
