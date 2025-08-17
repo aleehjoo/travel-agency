@@ -10,6 +10,7 @@ import {ButtonComponent} from "@syncfusion/ej2-react-buttons";
 import {account} from "~/appwrite/client";
 import {useNavigate} from "react-router";
 
+
 export const loader = async () => {
     const response = await fetch('https://restcountries.com/v3.1/all?fields=flag,name,latlng,maps');
     const data = await response.json();
