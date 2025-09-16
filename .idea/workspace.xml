@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5279ca18-1d25-4bcf-ad8b-dac75b9f291b" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/root/page-layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/root/page-layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/root/travel-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/root/travel-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +55,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alejandro/WebstormProjects/travel-agency&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,7 +76,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-WS-252.25557.126" />
       </set>
     </attachedChunks>
   </component>
@@ -119,7 +124,11 @@
       <workItem from="1755230867789" duration="159000" />
       <workItem from="1755255950922" duration="14000" />
       <workItem from="1755412694833" duration="3324000" />
-      <workItem from="1755417032507" duration="714000" />
+      <workItem from="1755417032507" duration="2634000" />
+      <workItem from="1755432350984" duration="2204000" />
+      <workItem from="1755530033184" duration="82000" />
+      <workItem from="1755596940989" duration="1078000" />
+      <workItem from="1758000741507" duration="2325000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
