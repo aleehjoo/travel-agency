@@ -16,6 +16,15 @@ import {
 import {ColumnDirective, ColumnsDirective, GridComponent, Inject} from "@syncfusion/ej2-react-grids";
 import {tripXAxis, tripyAxis, userXAxis, useryAxis} from "~/constants";
 import React from "react";
+import { Meta } from "react-router";
+
+export const meta: Route.MetaFunction = () => {
+  return [
+    { title: "Dashboard - Tourvisto Travel Management" },
+    { name: "description", content: "Manage your travel business with Tourvisto dashboard. Track user growth, trip statistics, and analytics in real-time." },
+    { name: "robots", content: "noindex, nofollow" }, // Dashboard should not be indexed
+  ];
+};
 
 
 export const clientLoader = async () => {

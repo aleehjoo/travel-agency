@@ -33,6 +33,31 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* SEO Meta Tags */}
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Tourvisto Travel Agency" />
+        <meta name="theme-color" content="#256ff1" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Tourvisto" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@tourvisto" />
+        
+        {/* Favicon */}
+        <link rel="icon" type="image/svg+xml" href="/assets/icons/logo.svg" />
+        <link rel="apple-touch-icon" href="/assets/icons/logo.svg" />
+        
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
         <Meta />
         <Links />
       </head>

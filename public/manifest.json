@@ -1,0 +1,22 @@
+{
+  "name": "Tourvisto - Travel Planning Made Easy",
+  "short_name": "Tourvisto",
+  "description": "Plan unforgettable trips with Tourvisto. Create custom itineraries, discover amazing destinations, and manage your travel bookings all in one place.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#256ff1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "lifestyle", "productivity"],
+  "lang": "en",
+  "scope": "/",
+  "prefer_related_applications": false
+}

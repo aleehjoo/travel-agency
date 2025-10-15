@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /admin/
+Disallow: /api/
+Disallow: /sign-in
+
+# Sitemap
+Sitemap: https://tourvisto.com/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
