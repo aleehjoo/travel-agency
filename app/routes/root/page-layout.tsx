@@ -28,6 +28,35 @@ const PageLayout = () => {
         checkAuth();
     }, []);
 
+    // Prevent scrolling and user interaction during loading
+    useEffect(() => {
+        if (isLoading) {
+            // Add loading class to html element
+            document.documentElement.classList.add('loading-active');
+            // Prevent scrolling (scrollbar is already hidden globally)
+            document.body.style.overflow = 'hidden';
+            // Prevent any pointer events on the body
+            document.body.style.pointerEvents = 'none';
+            // Add class to html element for additional scroll prevention
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            // Remove loading class
+            document.documentElement.classList.remove('loading-active');
+            // Restore normal behavior
+            document.body.style.overflow = 'unset';
+            document.body.style.pointerEvents = 'auto';
+            document.documentElement.style.overflow = 'unset';
+        }
+
+        // Cleanup function to ensure we always restore scroll
+        return () => {
+            document.documentElement.classList.remove('loading-active');
+            document.body.style.overflow = 'unset';
+            document.body.style.pointerEvents = 'auto';
+            document.documentElement.style.overflow = 'unset';
+        };
+    }, [isLoading]);
+
     const handleLogout = async () => {
         setIsProcessingLogout(true);
         try {
@@ -54,15 +83,31 @@ const PageLayout = () => {
         <div className="min-h-screen flex flex-col relative bg-gradient-to-b from-white to-slate-50">
             {/* Global loading overlay tied to navigation state */}
             {isLoading && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 z-50">
-                    <img
-                        src="/assets/icons/loader.svg"
-                        alt="Loading content, please wait"
-                        className="w-10 h-10 animate-spin"
-                        width="40"
-                        height="40"
-                    />
-                    <span className="mt-3 text-gray-700 font-medium">Loading...</span>
+                <div 
+                    className="fixed inset-0 flex flex-col items-center justify-center bg-white/90 z-[9999] overflow-hidden"
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        zIndex: 9999,
+                        pointerEvents: 'auto'
+                    }}
+                    onWheel={(e) => e.preventDefault()}
+                    onTouchMove={(e) => e.preventDefault()}
+                    onScroll={(e) => e.preventDefault()}
+                >
+                    <div className="flex flex-col items-center justify-center">
+                        <img
+                            src="/assets/icons/loader.svg"
+                            alt="Loading content, please wait"
+                            className="w-10 h-10 animate-spin"
+                            width="40"
+                            height="40"
+                        />
+                        <span className="mt-3 text-gray-700 font-medium">Loading...</span>
+                    </div>
                 </div>
             )}
 

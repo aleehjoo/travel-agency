@@ -8,6 +8,58 @@
 @import "../node_modules/@syncfusion/ej2-react-dropdowns/styles/material.css";
 @import "tailwindcss";
 
+/* Hide scrollbar permanently across the entire website */
+html {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;      /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none !important;              /* Chrome, Safari, Opera */
+}
+
+body {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;      /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none !important;              /* Chrome, Safari, Opera */
+}
+
+/* Hide scrollbars on all scrollable elements */
+* {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;      /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none !important;              /* Chrome, Safari, Opera */
+}
+
+/* Utility class for elements that need scrollbar hidden */
+.no-scrollbar {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;      /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;              /* Chrome, Safari, Opera */
+}
+
+/* Loading screen scroll prevention */
+.loading-active {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.loading-active body {
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
 @theme {
   --font-figtree: "Figtree", sans-serif;
   --font-inter: "Inter", sans-serif;
